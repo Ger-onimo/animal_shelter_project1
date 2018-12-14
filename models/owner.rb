@@ -4,8 +4,7 @@ require_relative("../db/sql_runner")
 
 class Owner
   attr_accessor :first_name, :last_name, :address,
-                :postcode, :tel_number, :email_address,
-                :animal_adopted
+                :postcode, :tel_number, :email_address
   attr_reader :id
 
   def initialize( options )
@@ -16,7 +15,6 @@ class Owner
     @postcode = options['postcode']
     @tel_number = options['tel_number']
     @email_address = options['email_address']
-    @animal_adopted = options['animal_adopted']
   end
 
 def save()
@@ -27,42 +25,37 @@ def save()
     address,
     postcode,
     tel_number,
-    email_address,
-    animal_adopted
+    email_address
   )
   VALUES
   (
-    $1, $2, $3, $4, $5, $6, $7
+    $1, $2, $3, $4, $5, $6
   )
   RETURNING id"
   values = [@first_name, @last_name,
             @address, @postcode,
-            @tel_number, @email_address,
-            @animal_adopted]
+            @tel_number, @email_address]
   owner = SqlRunner.run(sql, values).first
   @id = owner[:id].to_i
 end
 
   def update() #UPDATE
-    sql = "UPDATE owners
-    SET
+    sql = "UPDATE owners SET
       (
         first_name,
         last_name,
         address,
         postcode,
         tel_number,
-        email_address,
-        animal_adopted
+        email_address
       ) =
       (
-        $1, $2, $3, $4, $5, $6, $7
+        $1, $2, $3, $4, $5, $6
       )
-      WHERE id = $8"
+      WHERE id = $7"
       values = [@first_name, @last_name,
                 @address, @postcode,
-                @tel_number, @email_address,
-                @animal_adopted, @id]
+                @tel_number, @email_address, @id]
       SqlRunner.run(sql, values)
   end
 
