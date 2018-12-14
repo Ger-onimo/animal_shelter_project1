@@ -28,9 +28,9 @@ owner2.save
 Owner.all
 
 owner1.first_name = "bob"
-owner1.update   #test update - was working yesterday!!
+owner1.update   #test update - not updating in postico - was working yesterday!!
 
-owner2.delete #test delete - was working yesterday!!
+owner2.delete #test delete - not updating in postico
 
 binding.pry
 nil
