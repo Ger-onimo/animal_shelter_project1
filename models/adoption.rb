@@ -20,12 +20,25 @@ attr_reader :id, :owner_id, :animal_id
       (
         $1, $2
       )
-      RETURNING *"
+      RETURNING id"
       values = [@owner_id, @animal_id]
       adoption = SqlRunner.run(sql, values).first
       @id = adoption['id'].to_i
     end
 
-end
 
-# @owner_id = options['owner_id'].to_i if options['owner_id']
+    def self.all()
+      sql = "SELECT * FROM adoptions"
+      values = []
+      adoptions = SqlRunner.run(sql, values)
+      return adoptions.map{ |adoption| Adoption.new(adoption)}
+    end
+
+    def self.delete_all()
+      sql = "DELETE FROM adoptions"
+      values = []
+      SqlRunner.run(sql, values)
+    end
+
+
+end

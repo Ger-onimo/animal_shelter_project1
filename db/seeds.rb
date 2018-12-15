@@ -4,8 +4,10 @@ require_relative('../models/owner')
 require_relative('../models/animal')
 require_relative('../models/adoption')
 
+Adoption.delete_all()
 Animal.delete_all()
 Owner.delete_all()
+
 
 owner1 = Owner.new( {
   'first_name' => 'jenny',
@@ -57,9 +59,12 @@ animal3.save
 
 adoption1 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal1.id})
 adoption1.save
+adoption2 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal2.id})
+adoption2.save
+adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
+adoption3.save
 
-# Animal.animal_admission_dates
-#animal3.animal_admission_dates_all
+
 # banana = Owner.find_by_id(owner2.id)
 # bananimal = Animal.find_by_id(animal1.id)
 
