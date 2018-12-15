@@ -3,8 +3,7 @@ require('pg')
 require_relative("../db/sql_runner")
 
 class Owner
-  attr_accessor :first_name, :last_name, :address,
-                :postcode, :tel_number, :email_address
+  attr_accessor :first_name, :last_name, :address, :email_address
   attr_reader :id
 
   def initialize( options )
@@ -12,8 +11,6 @@ class Owner
     @first_name = options['first_name']
     @last_name = options['last_name']
     @address = options['address']
-    @postcode = options['postcode']
-    @tel_number = options['tel_number']
     @email_address = options['email_address']
   end
 
@@ -23,20 +20,17 @@ def save()
     first_name,
     last_name,
     address,
-    postcode,
-    tel_number,
     email_address
   )
   VALUES
   (
-    $1, $2, $3, $4, $5, $6
+    $1, $2, $3, $4
   )
   RETURNING id"
   values = [@first_name, @last_name,
-            @address, @postcode,
-            @tel_number, @email_address]
+            @address, @email_address]
   owner = SqlRunner.run(sql, values).first
-  @id = owner[:id].to_i
+  @id = owner['id'].to_i
 end
 
   def update() #UPDATE
@@ -45,17 +39,14 @@ end
         first_name,
         last_name,
         address,
-        postcode,
-        tel_number,
         email_address
       ) =
       (
-        $1, $2, $3, $4, $5, $6
+        $1, $2, $3, $4
       )
-      WHERE id = $7"
+      WHERE id = $5"
       values = [@first_name, @last_name,
-                @address, @postcode,
-                @tel_number, @email_address, @id]
+                @address, @email_address, @id]
       SqlRunner.run(sql, values)
   end
 
@@ -78,5 +69,16 @@ end
     values = []
     SqlRunner.run(sql, values)
   end
+
+  def self.find_owner_by(id)
+    sql = "SELECT * FROM owners
+    WHERE id = $1"
+    values = [id]
+    owner_hash = SqlRunner.run(sql, values).first
+    result = Owner.new(owner_hash)
+    return result
+  end
+
+
 
 end
