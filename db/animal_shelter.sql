@@ -8,12 +8,14 @@ CREATE TABLE owners(
   first_name VARCHAR(100),
   last_name VARCHAR(100),
   address VARCHAR(255),
-  email_address VARCHAR(100)
+  email_address VARCHAR(100),
+  animal_preference VARCHAR(50)
 );
 
 CREATE TABLE animals(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(100),
+  type VARCHAR(50),
   breed VARCHAR(100),
   admission_date VARCHAR(20),
   training_complete BOOLEAN,

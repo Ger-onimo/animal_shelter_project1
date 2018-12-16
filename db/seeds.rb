@@ -23,11 +23,20 @@ owner2 = Owner.new( {
   'email_address' => 'hevvur@smile.co.uk'
   } )
 
+owner3 = Owner.new( {
+'first_name' => 'jim',
+'last_name' => 'johnstone',
+'address' => '1 main road',
+'email_address' => 'jimbo@yahoop.co.uk'
+} )
+
 owner1.save
 owner2.save
+owner3.save
 
 animal1 = Animal.new( {
     'name' => 'willow',
+    'type' => 'cat',
     'breed' => 'moggie',
     'admission_date' => '2018-10-01',
     'training_complete' => true,
@@ -38,6 +47,7 @@ animal1 = Animal.new( {
 
 animal2 = Animal.new( {
     'name' => 'rufus',
+    'type' => 'small dog',
     'breed' => 'beagle',
     'admission_date' => '2018-08-04',
     'training_complete' => true,
@@ -48,6 +58,7 @@ animal2 = Animal.new( {
 
 animal3 = Animal.new( {
     'name' => 'lucy',
+    'type' => 'large dog',
     'breed' => 'dalmation',
     'admission_date' => '2018-06-26',
     'training_complete' => true,
@@ -64,20 +75,15 @@ adoption1 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal1.id})
 adoption1.save
 adoption2 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal2.id})
 adoption2.save
-# adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
-# adoption3.save
+adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
+adoption3.save
 
-owner1.animal() # test - return animals adopted by owner
-animal1.owner() # test - return owners of animals
 
-# Animal.admission_dates
-# banana = Owner.find_by_id(owner2.id)
-#bananimal = Animal.find_by_id(animal1.id)
 
 binding.pry
 nil
 
-#  Keep for now, but all these can be deleted
+# Keep for now, but all these can be deleted
 # Owner.all # test works
 # owner1.first_name = "bob" # test works
 # owner1.update   # test works
@@ -86,3 +92,8 @@ nil
 # animal1.breed = "siamese" # test works
 # animal1.update # test works
 # animal2.delete # test works
+
+# banana = Owner.find_owner_by_id(owner2.id) # test - works
+# bananimal = Animal.find_animal_by_breed('beagle') # test - works
+# owner1.animal() # test - return animals adopted by owner
+# animal1.owner() # test - return owners of animals

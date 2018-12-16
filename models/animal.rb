@@ -2,13 +2,14 @@ require('pg')
 require_relative('../db/sql_runner')
 
 class Animal
-  attr_accessor :name, :breed, :admission_date, :training_complete,
+  attr_accessor :name, :type, :breed, :admission_date, :training_complete,
                 :health_check_complete, :ready_to_adopt, :adopted
   attr_reader :id
 
   def initialize( options )
     @id = options['id'].to_i if options['id']
     @name = options['name']
+    @type = options['type']
     @breed = options['breed']
     @admission_date = options['admission_date']
     @training_complete = options['training_complete']
@@ -21,6 +22,7 @@ class Animal
     sql = "INSERT INTO animals
     (
       name,
+      type,
       breed,
       admission_date,
       training_complete,
@@ -30,10 +32,10 @@ class Animal
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6, $7
+      $1, $2, $3, $4, $5, $6, $7, $8
     )
     RETURNING id"
-    values = [@name, @breed,
+    values = [@name, @type, @breed,
               @admission_date, @training_complete,
               @health_check_complete, @ready_to_adopt, @adopted]
     animal = SqlRunner.run(sql, values).first
@@ -44,6 +46,7 @@ class Animal
     sql = "UPDATE animals SET
       (
         name,
+        type,
         breed,
         admission_date,
         training_complete,
@@ -52,18 +55,17 @@ class Animal
         adopted
       ) =
       (
-        $1, $2, $3, $4, $5, $6, $7
+        $1, $2, $3, $4, $5, $6, $7, $8
       )
-      WHERE id = $8"
-      values = [@name, @breed,
+      WHERE id = $9"
+      values = [@name, @type, @breed,
                 @dmission_date, @training_complete,
                 @health_check_complete, @ready_to_adopt, @adopted, @id]
       SqlRunner.run(sql, values)
   end
 
   def delete()
-    sql = "DELETE FROM animals
-    WHERE id = $1"
+    sql = "DELETE FROM animals WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -95,17 +97,25 @@ class Animal
     end
   #DONE - tested
 
-#TODO - not working now, but not sure if needed
+#return animals and dates of admission
+#returns nil values of all animals??
+  def self.admission_date()
+    sql = "SELECT (name, admission_date)
+        FROM animals"
+    values = []
+    adm_dates = SqlRunner.run(sql, values)
+    return adm_dates.map{ |date| Animal.new(date)}
+  end
 
-  # def self.find_animal_by(id)
+#TODO - for extension
+  # def self.find_animal_by_breed(breed)
   #   sql = "SELECT * FROM animals
-  #   WHERE id = $1"
-  #   values = [id]
+  #   WHERE breed = $1"
+  #   values = [breed]
   #   animal_hash = SqlRunner.run(sql, values).first
   #   result = Animal.new(animal_hash)
   #   return result
   # end
-
 
 end
 

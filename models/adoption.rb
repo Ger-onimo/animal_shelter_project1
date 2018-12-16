@@ -40,14 +40,21 @@ attr_reader :id, :owner_id, :animal_id
       SqlRunner.run(sql, values)
     end
 
-    def owner(id)
-        sql = "SELECT *
-               FROM owners
-               WHERE owners.id = $1"
+    def owner()
+        sql = "SELECT * FROM owners
+            WHERE owners.id = $1"
         values = [@owner_id]
         owner_hash = SqlRunner.run(sql, values).first
         owner = Owner.new(owner_hash)
         return owner
       end
 
+      # def animal()
+      #   sql = "SELECT * FROM animals
+      #     WHERE animals.id = $1"
+      #   values = [@animal_id]
+      #   animal_hash = SqlRunner.run(sql, values).first
+      #   animal = Animal.new(animal_hash)
+      #   return animal
+      # end
 end

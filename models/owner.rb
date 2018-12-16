@@ -3,7 +3,8 @@ require('pg')
 require_relative("../db/sql_runner")
 
 class Owner
-  attr_accessor :first_name, :last_name, :address, :email_address
+  attr_accessor :first_name, :last_name, :address,
+                :email_address, :animal_preference
   attr_reader :id
 
   def initialize( options )
@@ -12,6 +13,7 @@ class Owner
     @last_name = options['last_name']
     @address = options['address']
     @email_address = options['email_address']
+    @animal_preference = options['animal_preference']
   end
 
 def save()
@@ -20,15 +22,15 @@ def save()
     first_name,
     last_name,
     address,
-    email_address
+    email_address,
+    animal_preference
   )
   VALUES
   (
-    $1, $2, $3, $4
+    $1, $2, $3, $4, $5
   )
   RETURNING id"
-  values = [@first_name, @last_name,
-            @address, @email_address]
+  values = [@first_name, @last_name, @address, @email_address, @animal_preference]
   owner = SqlRunner.run(sql, values).first
   @id = owner['id'].to_i
 end
@@ -39,20 +41,19 @@ end
         first_name,
         last_name,
         address,
-        email_address
+        email_address,
+        animal_preference
       ) =
       (
-        $1, $2, $3, $4
+        $1, $2, $3, $4, $5
       )
-      WHERE id = $5"
-      values = [@first_name, @last_name,
-                @address, @email_address, @id]
+      WHERE id = $6"
+      values = [@first_name, @last_name, @address, @email_address, @animal_preference, @id]
       SqlRunner.run(sql, values)
   end
 
   def delete()
-    sql = "DELETE FROM owners
-    WHERE id = $1"
+    sql = "DELETE FROM owners WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
@@ -84,15 +85,18 @@ end
   end
 #### TODO - done
 
-# # TODO - not working now, but not sure if needed
-#   def self.find_owner_by(id)
-#     sql = "SELECT * FROM owners
-#     WHERE id = $1"
-#     values = [id]
-#     owner_hash = SqlRunner.run(sql, values).first
-#     result = Owner.new(owner_hash)
-#     return result
-#   end
+def nice_name()
+  return "#{@first_name.capitalize} #{@last_name.capitalize}"
+end
+
+# not sure if needed
+  def self.find_owner_by_id(id)
+    sql = "SELECT * FROM owners WHERE id = $1"
+    values = [id]
+    owner_hash = SqlRunner.run(sql, values).first
+    result = Owner.new(owner_hash)
+    return result
+  end
 
 
 
