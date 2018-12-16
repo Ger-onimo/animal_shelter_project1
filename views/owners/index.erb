@@ -4,10 +4,8 @@
 <div id="owner-wrapper">
   <% @owners.each do |owner| %>
 
- <div class="owner">
-   <h3><a href"/owners/<%= owner.id %>"><%= owner.nice_name %></a></h3>
-   <p>email address: <%= owner.email_address %></p>
-
+  <div class="owner">
+    <h3><a href"/owners/<%= owner.id %>"><%= owner.nice_name %></a></h3>
   </div>
   <% end %>
 </div>

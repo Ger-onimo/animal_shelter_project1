@@ -93,7 +93,7 @@ nil
 # animal1.update # test works
 # animal2.delete # test works
 
-# banana = Owner.find_owner_by_id(owner2.id) # test - works
+# banana = Owner.find(owner2.id) # test - works
 # bananimal = Animal.find_animal_by_breed('beagle') # test - works
 # owner1.animal() # test - return animals adopted by owner
 # animal1.owner() # test - return owners of animals

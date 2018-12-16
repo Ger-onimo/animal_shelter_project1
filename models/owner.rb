@@ -85,12 +85,7 @@ end
   end
 #### TODO - done
 
-def nice_name()
-  return "#{@first_name.capitalize} #{@last_name.capitalize}"
-end
-
-# not sure if needed
-  def self.find_owner_by_id(id)
+  def self.find(id)
     sql = "SELECT * FROM owners WHERE id = $1"
     values = [id]
     owner_hash = SqlRunner.run(sql, values).first
@@ -98,6 +93,7 @@ end
     return result
   end
 
-
-
+  def nice_name()
+    return "#{@first_name.capitalize} #{@last_name.capitalize}"
+  end
 end
