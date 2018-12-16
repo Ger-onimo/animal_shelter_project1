@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS adoptions;
-DROP TABLE IF EXISTS animals;
-DROP TABLE IF EXISTS owners;
+DROP TABLE adoptions;
+DROP TABLE animals;
+DROP TABLE owners;
 
 
 CREATE TABLE owners(
@@ -18,7 +18,8 @@ CREATE TABLE animals(
   admission_date VARCHAR(20),
   training_complete BOOLEAN,
   health_check_complete BOOLEAN,
-  ready_to_adopt BOOLEAN
+  ready_to_adopt BOOLEAN,
+  adopted BOOLEAN
 );
 
 CREATE TABLE adoptions(

@@ -70,14 +70,29 @@ end
     SqlRunner.run(sql, values)
   end
 
-  def self.find_owner_by(id)
-    sql = "SELECT * FROM owners
-    WHERE id = $1"
-    values = [id]
-    owner_hash = SqlRunner.run(sql, values).first
-    result = Owner.new(owner_hash)
-    return result
+# TODO display all the animals a particular owner has adopted
+
+  def animal()
+    sql = "SELECT animals.*
+    FROM animals
+    INNER JOIN adoptions
+    ON animals.id = animal_id
+    WHERE owner_id = $1"
+    values = [@id]
+    animals = SqlRunner.run(sql, values)
+    return animals.map{ |animal| Animal.new(animal) }
   end
+#### TODO - done
+
+# # TODO - not working now, but not sure if needed
+#   def self.find_owner_by(id)
+#     sql = "SELECT * FROM owners
+#     WHERE id = $1"
+#     values = [id]
+#     owner_hash = SqlRunner.run(sql, values).first
+#     result = Owner.new(owner_hash)
+#     return result
+#   end
 
 
 

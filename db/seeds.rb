@@ -31,17 +31,19 @@ animal1 = Animal.new( {
     'breed' => 'moggie',
     'admission_date' => '2018-10-01',
     'training_complete' => true,
-    'health_check_complete' => true,
+    'health_check_complete' => true ,
     'ready_to_adopt' => true,
+    'adopted' => true
      } )
 
 animal2 = Animal.new( {
     'name' => 'rufus',
     'breed' => 'beagle',
     'admission_date' => '2018-08-04',
-    'training_complete' => false,
+    'training_complete' => true,
     'health_check_complete' => true,
-    'ready_to_adopt' => false,
+    'ready_to_adopt' => true,
+    'adopted' => true
      } )
 
 animal3 = Animal.new( {
@@ -49,8 +51,9 @@ animal3 = Animal.new( {
     'breed' => 'dalmation',
     'admission_date' => '2018-06-26',
     'training_complete' => true,
-    'health_check_complete' => false,
-    'ready_to_adopt' => false,
+    'health_check_complete' => true,
+    'ready_to_adopt' => true,
+    'adopted' => false
     } )
 
 animal1.save
@@ -61,12 +64,15 @@ adoption1 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal1.id})
 adoption1.save
 adoption2 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal2.id})
 adoption2.save
-adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
-adoption3.save
+# adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
+# adoption3.save
 
+owner1.animal() # test - return animals adopted by owner
+animal1.owner() # test - return owners of animals
 
+# Animal.admission_dates
 # banana = Owner.find_by_id(owner2.id)
-# bananimal = Animal.find_by_id(animal1.id)
+#bananimal = Animal.find_by_id(animal1.id)
 
 binding.pry
 nil

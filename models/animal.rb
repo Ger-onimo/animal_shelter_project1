@@ -3,7 +3,7 @@ require_relative('../db/sql_runner')
 
 class Animal
   attr_accessor :name, :breed, :admission_date, :training_complete,
-                :health_check_complete, :ready_to_adopt
+                :health_check_complete, :ready_to_adopt, :adopted
   attr_reader :id
 
   def initialize( options )
@@ -14,6 +14,7 @@ class Animal
     @training_complete = options['training_complete']
     @health_check_complete = options['health_check_complete']
     @ready_to_adopt = options['ready_to_adopt']
+    @adopted = options['adopted']
   end
 
   def save()
@@ -24,16 +25,17 @@ class Animal
       admission_date,
       training_complete,
       health_check_complete,
-      ready_to_adopt
+      ready_to_adopt,
+      adopted
     )
     VALUES
     (
-      $1, $2, $3, $4, $5, $6
+      $1, $2, $3, $4, $5, $6, $7
     )
     RETURNING id"
     values = [@name, @breed,
               @admission_date, @training_complete,
-              @health_check_complete, @ready_to_adopt]
+              @health_check_complete, @ready_to_adopt, @adopted]
     animal = SqlRunner.run(sql, values).first
     @id = animal['id'].to_i
   end
@@ -47,14 +49,15 @@ class Animal
         training_complete,
         health_check_complete,
         ready_to_adopt,
+        adopted
       ) =
       (
-        $1, $2, $3, $4, $5, $6
+        $1, $2, $3, $4, $5, $6, $7
       )
-      WHERE id = $7"
+      WHERE id = $8"
       values = [@name, @breed,
                 @dmission_date, @training_complete,
-                @health_check_complete, @ready_to_adopt, @id]
+                @health_check_complete, @ready_to_adopt, @adopted, @id]
       SqlRunner.run(sql, values)
   end
 
@@ -78,21 +81,31 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
-  def self.find_animal_by(id)
-    sql = "SELECT * FROM animals
-    WHERE id = $1"
-    values = [id]
-    animal_hash = SqlRunner.run(sql, values).first
-    result = Animal.new(animal_hash)
-    return result
-  end
+  # TODO display all the owners of a particular animal
 
-  # def self.admission_dates()
-  #   sql = 'SELECT'
-  #
+    def owner()
+      sql = "SELECT owners.*
+      FROM owners
+      INNER JOIN adoptions
+      ON owners.id = owner_id
+      WHERE animal_id = $1"
+      values = [@id]
+      owners = SqlRunner.run(sql, values)
+      return owners.map{ |owner| Owner.new(owner) }
+    end
+  #DONE - tested
+
+#TODO - not working now, but not sure if needed
+
+  # def self.find_animal_by(id)
+  #   sql = "SELECT * FROM animals
+  #   WHERE id = $1"
+  #   values = [id]
+  #   animal_hash = SqlRunner.run(sql, values).first
+  #   result = Animal.new(animal_hash)
+  #   return result
   # end
-  # for all the animals in animals table, return
-  # animals and admission date.
+
 
 end
 
