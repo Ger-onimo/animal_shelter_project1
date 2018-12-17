@@ -5,7 +5,7 @@ require_relative('../models/animal')
 require_relative('../models/adoption')
 also_reload('../models/*')
 
-get '/owners' do
+get '/owners/?' do
   @owners = Owner.all()
   erb ( :"owners/index" )
 end
@@ -22,4 +22,21 @@ end
 get '/owners/:id' do
   @owner = Owner.find(params['id'])
   erb(:"owners/show")
+end
+
+get '/owners/:id/edit' do
+  @owner = Owner.find(params['id'])
+  erb(:"owners/edit")
+end
+
+post '/owners/:id' do
+  owner = Owner.new(params)
+  owner.update
+  redirect to "/owners/#{params['id']}"
+end
+
+post '/owners/:id/delete' do
+  owner = Owner.find(params['id'])
+  owner.delete
+  redirect to '/owners'
 end

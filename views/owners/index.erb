@@ -1,11 +1,15 @@
 <h2>Owners</h2>
 
-<!-- should this be a table -->
 <div id="owner-wrapper">
   <% @owners.each do |owner| %>
 
   <div class="owner">
-    <h3><a href"/owners/<%= owner.id %>"><%= owner.nice_name %></a></h3>
+    <h3><a href="/owners/<%= owner.id %>"><%= owner.nice_name %></a></h3>
   </div>
   <% end %>
 </div>
+
+<div>
+  <p><a href="/owners/new" >Add a new owner</a></p>
+</div>
+ <!-- <a href="./aboutme.html">About Me</a> -->

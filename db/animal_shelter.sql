@@ -29,7 +29,3 @@ CREATE TABLE adoptions(
   owner_id INT4 REFERENCES owners(id),
   animal_id INT4 REFERENCES animals(id) ON DELETE CASCADE
 );
-
-
--- ready_to_adopt could be
--- if completed_training + completed_health_check equal true

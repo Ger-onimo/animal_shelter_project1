@@ -97,15 +97,16 @@ class Animal
     end
   #DONE - tested
 
+
 #return animals and dates of admission
 #returns nil values of all animals??
-  def self.admission_date()
-    sql = "SELECT (name, admission_date)
-        FROM animals"
-    values = []
-    adm_dates = SqlRunner.run(sql, values)
-    return adm_dates.map{ |date| Animal.new(date)}
-  end
+  # def self.admission_date()
+  #   sql = "SELECT (name, admission_date)
+  #       FROM animals"
+  #   values = []
+  #   adm_dates = SqlRunner.run(sql, values)
+  #   return adm_dates.map{ |date| Animal.new(date)}
+  # end
 
 #TODO - for extension
   # def self.find_animal_by_breed(breed)
