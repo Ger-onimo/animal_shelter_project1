@@ -29,17 +29,17 @@
     <!-- Field for animal preference - for now hard coded -->
     <div>
       <label for="animal_preference">Animal Preference:</label>
-      <select name="animal_preference" id="animal_preference" value="<%= @owner.animal_preference %>">
-        <option value="cat">cat</option>
-        <option value="small dog">small dog</option>
-        <option value="large dog">large dog</option>
-        <option value="any dog">any dog</option>
-        <option value="none">none</option>
+      <select name="animal_preference" id="animal_preference">
+        <option value="cat" <%="selected" if @owner.animal_preference== "cat"%>>cat</option>
+        <option value="small dog"<%="selected" if @owner.animal_preference== "small dog"%>>small dog</option>
+        <option value="large dog"<%="selected" if @owner.animal_preference== "large dog"%>>large dog</option>
+        <option value="any dog"<%="selected" if @owner.animal_preference== "any dog"%>>any dog</option>
+        <option value="none"<%="selected" if @owner.animal_preference== "none"%>>none</option>
       </select>
     </div>
 
     <div>
-      <input type="submit" value="Sumbit"/>
+      <input type="submit" value="Submit"/>
     </div>
 
   </div/

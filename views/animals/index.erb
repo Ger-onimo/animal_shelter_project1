@@ -1,0 +1,16 @@
+<h2>Animals</h2>
+
+<div id="animal-wrapper">
+  <% @animals.each do |animal| %>
+
+  <div class="animals">
+    <h3><a href="/animals/<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
+    <p>Admission Date: <%= animal.admission_date %></p>
+
+  </div>
+  <% end %>
+</div>
+
+<div>
+  <p><a href="/animals/new" >Add a new animal</a></p>
+</div>

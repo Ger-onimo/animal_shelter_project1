@@ -83,6 +83,14 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM animals WHERE id = $1"
+    values = [id]
+    animal_hash = SqlRunner.run(sql, values).first
+    result = Animal.new(animal_hash)
+    return result
+  end
+
   # TODO display all the owners of a particular animal
 
     def owner()
