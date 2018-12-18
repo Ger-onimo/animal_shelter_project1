@@ -1,5 +1,11 @@
-<p>this will show adoptable animals</p>
 
+<div id="adoptions-wrapper">
+  <% @animals.adoptable.each do |animal| %>
+  <div class="adoptions">
+    <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name %></a></h3>
+  </div>
+  <% end %>
+</div>
 
 <form>
  <div>

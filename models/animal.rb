@@ -18,16 +18,6 @@ class Animal
     @adopted = options['adopted']
   end
 
-  # def adoptable(trained, health)
-  #   trained = @training_complete
-  #   health = @health_check_complete
-  #     if trained == "t" && health == "t"
-  #       print "adoptable"
-  #     else
-  #       print "not adoptable"
-  #     end
-  # end
-
   def save()
     sql = "INSERT INTO animals
     (
@@ -101,19 +91,29 @@ class Animal
     return result
   end
 
-  # TODO display all the owners of a particular animal
-
-    def owner()
-      sql = "SELECT owners.*
+  def owner()
+    sql = "SELECT owners.*
       FROM owners
       INNER JOIN adoptions
       ON owners.id = owner_id
       WHERE animal_id = $1"
-      values = [@id]
-      owners = SqlRunner.run(sql, values)
-      return owners.map{ |owner| Owner.new(owner) }
-    end
-  #DONE - tested
+    values = [@id]
+    owners = SqlRunner.run(sql, values)
+    return owners.map{ |owner| Owner.new(owner) }
+  end
+
+  def self.adoptable()
+    sql ="SELECT * FROM animals
+      WHERE animals.id NOT IN
+      (SELECT animals.id FROM animals
+      INNER JOIN adoptions
+      ON animals.id = adoptions.animal_id)
+      AND ready_to_adopt = TRUE"
+    values = []
+    animals = SqlRunner.run(sql, values)
+    return animals.map{ |animal| Animal.new(animal)}
+  end
+
 
 #TODO - for extension
   # def self.find_animal_by_breed(breed)
@@ -126,5 +126,3 @@ class Animal
   # end
 
 end
-
-# @owner_id = options['owner_id'].to_i if options['owner_id']

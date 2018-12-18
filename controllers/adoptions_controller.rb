@@ -7,9 +7,7 @@ also_reload('../models/*')
 
 
   get '/adoptions/new' do
-    # @animals = Animal.all()
+    @animals = Animal.adoptable
     @owners = Owner.all
-    # was going to use for assigning animal
-    # but with condition for adoptable animals only
     erb(:"adoptions/new")
   end

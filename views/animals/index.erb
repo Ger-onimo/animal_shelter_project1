@@ -6,11 +6,14 @@
   <div class="animals">
     <h3><a href="/animals/<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
     <p>Admission Date: <%= animal.admission_date %></p>
-    <p>Adoption status: </p>
   </div>
   <% end %>
 </div>
-
+<br>
 <div>
   <p><a href="/animals/new" >Add a new animal</a></p>
+</div>
+  <br>
+<div>
+  <p><a href="/adoptions/new" >Animals for adoption</a></p>
 </div>
