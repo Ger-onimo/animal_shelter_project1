@@ -4,6 +4,15 @@
 <p>email: <%= @owner.email_address %></p>
 <p>Animal Preference: <%= @owner.animal_preference %></p>
 <p>Animals Adopted: </p>
+
+<div>
+    <ul><% @owner.animals.each do |animal| %>
+      <li><%= animal.name%></li>
+      <% end %>
+    </ul>
+</div>
+
+
 <br>
 <a href="/owners/<%= @owner.id %>/edit">Edit</a>
 <br>

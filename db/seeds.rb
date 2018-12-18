@@ -79,9 +79,22 @@ animal3 = Animal.new( {
     'adopted' => false
     } )
 
+    animal4 = Animal.new( {
+        'name' => 'BBBBOOOOB',
+        'type' => 'large dog',
+        'breed' => 'dalmation',
+        'admission_date' => '2018-06-26',
+        'training_complete' => true,
+        'health_check_complete' => true,
+        'ready_to_adopt' => false,
+        'adopted' => false
+        } )
+
 animal1.save
 animal2.save
 animal3.save
+animal4.save
+
 
 adoption1 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal1.id})
 adoption1.save

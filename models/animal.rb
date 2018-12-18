@@ -103,7 +103,7 @@ class Animal
 
   # TODO display all the owners of a particular animal
 
-    def owners()
+    def owner()
       sql = "SELECT owners.*
       FROM owners
       INNER JOIN adoptions

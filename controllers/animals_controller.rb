@@ -13,7 +13,6 @@ end
 
 #new - form
 get '/animals/new' do
-  @owners = Owner.all
   erb(:"animals/new")
 end
 
