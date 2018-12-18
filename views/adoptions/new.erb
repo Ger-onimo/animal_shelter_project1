@@ -1,19 +1,32 @@
 
 <div id="adoptions-wrapper">
-  <% @animals.adoptable.each do |animal| %>
+
+  <% @animals.each do |animal| %>
   <div class="adoptions">
     <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name %></a></h3>
   </div>
   <% end %>
-</div>
 
 <form>
- <div>
-    <label for="adopted">Assign an owner</label>
+  <!-- <legend> assign an owner to an animal  -->
+    <label for="adopted">Owner</label>
     <select name="owner_id" id="adopted">
       <% @owners.each do |owner| %>
       <option value=""<%= owner.id %>><%= owner.nice_name%></option>
       <% end %>
     <select>
+
+    <label for="adopted">Animal</label>
+    <select name="animal_id" id="adopted">
+      <% @animals.each do |animal| %>
+      <option value=""<%= animal.id %>><%= animal.name%></option>
+      <% end %>
+    <select>
   </div>
+
+  <div>
+    <input type="submit" value="Submit"/>
+  </div>
+</div>
+
   </form>

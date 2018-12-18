@@ -59,7 +59,7 @@ class Animal
       )
       WHERE id = $9"
       values = [@name, @type, @breed,
-                @dmission_date, @training_complete,
+                @admission_date, @training_complete,
                 @health_check_complete, @ready_to_adopt, @adopted, @id]
       SqlRunner.run(sql, values)
   end

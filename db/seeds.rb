@@ -50,7 +50,7 @@ animal1 = Animal.new( {
     'name' => 'willow',
     'type' => 'cat',
     'breed' => 'moggie',
-    'admission_date' => '2018-10-01',
+    'admission_date' => '01/10/2018',
     'training_complete' => true,
     'health_check_complete' => true ,
     'ready_to_adopt' => true,
@@ -61,7 +61,7 @@ animal2 = Animal.new( {
     'name' => 'rufus',
     'type' => 'small dog',
     'breed' => 'beagle',
-    'admission_date' => '2018-08-04',
+    'admission_date' => '04/08/2018',
     'training_complete' => true,
     'health_check_complete' => true,
     'ready_to_adopt' => true,
@@ -72,36 +72,49 @@ animal3 = Animal.new( {
     'name' => 'lucy',
     'type' => 'large dog',
     'breed' => 'dalmation',
-    'admission_date' => '2018-06-26',
+    'admission_date' => '16/11/2018',
     'training_complete' => true,
     'health_check_complete' => true,
     'ready_to_adopt' => true,
     'adopted' => false
     } )
 
-    animal4 = Animal.new( {
-        'name' => 'BBBBOOOOB',
-        'type' => 'large dog',
-        'breed' => 'dalmation',
-        'admission_date' => '2018-06-26',
-        'training_complete' => true,
-        'health_check_complete' => true,
-        'ready_to_adopt' => true,
-        'adopted' => false
-        } )
+  animal4 = Animal.new( {
+    'name' => 'Buddy',
+    'type' => 'small dog',
+    'breed' => 'dalmation',
+    'admission_date' => '26/10/2018',
+    'training_complete' => true,
+    'health_check_complete' => true,
+    'ready_to_adopt' => true,
+    'adopted' => false
+    } )
+
+  animal5 = Animal.new( {
+    'name' => 'Crusty',
+    'type' => 'large dog',
+    'breed' => 'dalmation',
+    'admission_date' => '26/10/2018',
+    'training_complete' => true,
+    'health_check_complete' => true,
+    'ready_to_adopt' => true,
+    'adopted' => false
+    } )
+
 
 animal1.save
 animal2.save
 animal3.save
 animal4.save
+animal5.save
 
 
 adoption1 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal1.id})
 adoption1.save
 adoption2 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal2.id})
 adoption2.save
-# adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
-# adoption3.save
+adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
+adoption3.save
 
 binding.pry
 nil

@@ -1,0 +1,99 @@
+body {
+  background: aliceblue ;
+  /* background-image: url('/images/dug_copy.jpg'); */
+
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: black;
+  font-family: 'Trebuchet MS', serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* {
+  background-image: url('/images/dug.jpg');
+  opacity: 0.3;
+  background-image: url('/images/puss_cat.jpg');
+  opacity: 0.3;
+} */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'arial';
+  margin: 10px;
+  padding: 5px;
+}
+
+h1 {
+  font-size: 1.8em;
+  color: black;
+  margin-bottom: 20px;
+}
+
+ p{
+  font-size: .8em;
+  color: black;
+  margin-bottom: 20px;
+  margin 10px;
+  padding-left: 25px;
+}
+
+/* DONE */
+a, a:link, a:visited {
+  color: slategrey;
+  text-decoration: none;
+}
+
+/* not sure what this does */
+a:hover, a:active, a:focus {
+  color: #c6e2ff;
+}
+
+/* DONE */
+nav {
+  padding: 10px;
+  margin: 0px;
+  padding-right: 25px;
+}
+
+/*
+nav ul li {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+*/
+
+/* not sure what this does
+ ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+} */
+
+main {
+  padding: 25px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--row {
+  flex-direction: row;
+}
+
+/* DONE */
+
+.content {
+  border-left: 1px solid darkred;
+  padding-left: 25px;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+}

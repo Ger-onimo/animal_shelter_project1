@@ -11,3 +11,15 @@ also_reload('../models/*')
     @owners = Owner.all
     erb(:"adoptions/new")
   end
+  #
+  # post '/animals' do
+  #   Animal.new(params).save
+  #   redirect to '/animals'
+  # end
+  #
+  # #update or save???
+  # post '/animals/:id' do
+  #   animal = Animal.new(params)
+  #   animal.update
+  #   redirect to "/animals/#{params['id']}"
+  # end
