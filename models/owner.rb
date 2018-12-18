@@ -83,7 +83,6 @@ end
     animals = SqlRunner.run(sql, values)
     return animals.map{ |animal| Animal.new(animal) }
   end
-#### TODO - done
 
   def self.find(id)
     sql = "SELECT * FROM owners WHERE id = $1"
@@ -92,6 +91,21 @@ end
     result = Owner.new(owner_hash)
     return result
   end
+
+  def owner_animals()
+    sql = "SELECT (name)
+    FROM animals
+    INNER JOIN adoptions
+    ON animals.id = animal_id
+    WHERE owner_id = $1"
+    values = [@id]
+    animals = SqlRunner.run(sql, values)
+    return animals.map{ |animal| Animal.new(animal) }
+    # .map{ |animal| animal[:name]}
+    # return animals[0]['name']
+  end
+
+  # animals.each { |animal| p animal[:name] }
 
   def nice_name()
     return "#{@first_name.capitalize} #{@last_name.capitalize}"

@@ -18,6 +18,16 @@ class Animal
     @adopted = options['adopted']
   end
 
+  # def adoptable(trained, health)
+  #   trained = @training_complete
+  #   health = @health_check_complete
+  #     if trained == "t" && health == "t"
+  #       print "adoptable"
+  #     else
+  #       print "not adoptable"
+  #     end
+  # end
+
   def save()
     sql = "INSERT INTO animals
     (
@@ -93,7 +103,7 @@ class Animal
 
   # TODO display all the owners of a particular animal
 
-    def owner()
+    def owners()
       sql = "SELECT owners.*
       FROM owners
       INNER JOIN adoptions
@@ -104,17 +114,6 @@ class Animal
       return owners.map{ |owner| Owner.new(owner) }
     end
   #DONE - tested
-
-
-#return animals and dates of admission
-#returns nil values of all animals??
-  # def self.admission_date()
-  #   sql = "SELECT (name, admission_date)
-  #       FROM animals"
-  #   values = []
-  #   adm_dates = SqlRunner.run(sql, values)
-  #   return adm_dates.map{ |date| Animal.new(date)}
-  # end
 
 #TODO - for extension
   # def self.find_animal_by_breed(breed)

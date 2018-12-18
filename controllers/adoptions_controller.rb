@@ -5,7 +5,8 @@ require_relative('../models/animal')
 require_relative('../models/adoption')
 also_reload('../models/*')
 
-
-post '/adoptions' do
-  
-end
+  get '/adoptions/?' do
+    @animals = Animal.all()
+    # but with condition for adoptable animals only
+    erb ( :"adoptions/index" )
+  end

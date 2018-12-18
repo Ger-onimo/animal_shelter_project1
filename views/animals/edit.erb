@@ -24,7 +24,7 @@
   </div>
   <!-- Field for in training -->
   <div>
-    <label for="training_complete">Training_complete?</label>
+    <label for="training_complete">Training Complete?</label>
     <input type="checkbox" name="training_complete" id="training_complete"
     <%= "checked" if @animal.training_complete == "t" %>/>
   </div>
@@ -39,12 +39,6 @@
     <label for="ready_to_adopt">Ready for Adoption?</label>
     <input type="checkbox" name="ready_to_adopt" id="ready_to_adopt"
     <%= "checked" if @animal.ready_to_adopt == "t" %>/>
-  </div>
-  <!-- Field for adopted - take this out, but not yet-->
-  <div>
-    <label for="adopted">Adopted?</label>
-    <input type="checkbox" name="adopted" id="adopted"
-    <%= "checked" if @animal.adopted == "t" %>/>
   </div>
 
   <div>

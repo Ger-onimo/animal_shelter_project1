@@ -33,9 +33,18 @@ owner3 = Owner.new( {
 'animal_preference' => 'small dog'
 } )
 
+owner4 = Owner.new( {
+'first_name' => 'jack',
+'last_name' => 'jones',
+'address' => '1 trumpton street',
+'email_address' => 'jjones@gooble.co.uk',
+'animal_preference' => 'any dog'
+} )
+
 owner1.save
 owner2.save
 owner3.save
+owner4.save
 
 animal1 = Animal.new( {
     'name' => 'willow',
@@ -80,8 +89,6 @@ adoption2 = Adoption.new({'owner_id' => owner1.id, 'animal_id' => animal2.id})
 adoption2.save
 adoption3 = Adoption.new({'owner_id' => owner2.id, 'animal_id' => animal3.id})
 adoption3.save
-
-
 
 binding.pry
 nil

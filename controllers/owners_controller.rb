@@ -21,7 +21,8 @@ end
 
 get '/owners/:id' do
   @owner = Owner.find(params['id'])
-  # get the name and type of animal for an owner
+
+  # get the name of adopted animal for an owner
   erb(:"owners/show")
 end
 
