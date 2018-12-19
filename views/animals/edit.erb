@@ -47,6 +47,14 @@
     <%= "checked" if @animal.ready_to_adopt == "t" %>/>
   </div>
   <br>
+
+  <div>
+    <label for="adopted">Adopted?</label>
+    <input type="checkbox" name="adopted" id="adopted"
+    <%= "checked" if @animal.adopted == "t" %>/>
+  </div>
+  <br>
+
   <div>
     <input type="submit" value="Submit"/>
   </div>

@@ -36,7 +36,7 @@ owner3 = Owner.new( {
 owner4 = Owner.new( {
 'first_name' => 'jack',
 'last_name' => 'jones',
-'address' => '1 trumpton street',
+'address' => '17 trumpton street',
 'email_address' => 'jjones@gooble.co.uk',
 'animal_preference' => 'any dog'
 } )
@@ -76,7 +76,7 @@ animal3 = Animal.new( {
     'training_complete' => true,
     'health_check_complete' => true,
     'ready_to_adopt' => true,
-    'adopted' => false
+    'adopted' => true
     } )
 
   animal4 = Animal.new( {
