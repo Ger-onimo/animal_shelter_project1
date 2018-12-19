@@ -4,28 +4,30 @@
   <% @animals.each do |animal| %>
   <div class="adoptions">
     <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name %></a></h3>
+    <p>Type: <%= animal.type %></p>
+    <p>Type: <%= animal.breed %></p>
   </div>
   <% end %>
 
-<form>
+<form method="POST" action="/adoptions/new" >
   <!-- <legend> assign an owner to an animal  -->
-    <label for="adopted">Owner</label>
-    <select name="owner_id" id="adopted">
+    <label for="owner_id">Owner</label>
+    <select name="owner_id" id="owner_id">
       <% @owners.each do |owner| %>
-      <option value=""<%= owner.id %>><%= owner.nice_name%></option>
+        <option value="<%= owner.id %>"><%= owner.nice_name%></option>
       <% end %>
     <select>
 
-    <label for="adopted">Animal</label>
-    <select name="animal_id" id="adopted">
+    <label for="animal_id">Animal</label>
+    <select name="animal_id" id="animal_id">
       <% @animals.each do |animal| %>
-      <option value=""<%= animal.id %>><%= animal.name%></option>
+        <option value="<%= animal.id %>"><%= animal.name%></option>
       <% end %>
     <select>
   </div>
 
   <div>
-    <input type="submit" value="Submit"/>
+    <input type="submit" value="Submit Adoption"/>
   </div>
 </div>
 

@@ -26,6 +26,20 @@ attr_reader :id, :owner_id, :animal_id
       @id = adoption['id'].to_i
     end
 
+    def update() #UPDATE
+      sql = "UPDATE adoptions SET
+        (
+          owner_id,
+          animal_id
+        ) =
+        (
+          $1, $2,
+        )
+        WHERE id = $3"
+        values = [@owner_id, @animal_id, @id]
+        SqlRunner.run(sql, values)
+    end
+
 
     def self.all()
       sql = "SELECT * FROM adoptions"

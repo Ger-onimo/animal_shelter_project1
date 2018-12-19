@@ -1,5 +1,6 @@
 require('sinatra')
 require('sinatra/contrib/all')
+require('pry')
 require_relative('../models/owner')
 require_relative('../models/animal')
 require_relative('../models/adoption')
@@ -11,15 +12,13 @@ also_reload('../models/*')
     @owners = Owner.all
     erb(:"adoptions/new")
   end
-  #
-  # post '/animals' do
-  #   Animal.new(params).save
-  #   redirect to '/animals'
-  # end
-  #
-  # #update or save???
-  # post '/animals/:id' do
-  #   animal = Animal.new(params)
-  #   animal.update
-  #   redirect to "/animals/#{params['id']}"
-  # end
+
+  post '/adoptions/new' do
+    binding.pry
+    Adoption.new(params).save
+    animal = Animal.find(params[:animal_id])
+    animal.adopted == true
+    animal.ready_to_adopt == false
+    # do I need owner = Owner.find(params[:owner_id])
+    redirect to '/animals'
+  end
