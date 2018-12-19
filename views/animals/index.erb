@@ -5,14 +5,15 @@
 
   <div class="animals">
     <h3><a href="/animals/<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
-    <p>Admission Date: <%= animal.admission_date %></p>
 
       <% if animal.adopted == 't'%>
-        <p>Adopted</p>
-          <%if animal.ready_to_adopt == 't' && animal.adopted == 'f'%>
-        <p>Adoptable</p>
-            <% end %>
-          <% end %>
+        <h5>Adopted</h5>
+      <% end %>
+      <%if animal.ready_to_adopt == 't' && animal.adopted == 'f'%>
+        <h5>Adoptable</h5>
+      <% end %>
+      <p>Admission Date: <%= animal.admission_date %></p>
+
   </div>
   <% end %>
 
