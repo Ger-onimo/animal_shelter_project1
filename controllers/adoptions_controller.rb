@@ -14,11 +14,9 @@ also_reload('../models/*')
   end
 
   post '/adoptions/new' do
-    binding.pry
     Adoption.new(params).save
     animal = Animal.find(params[:animal_id])
     animal.adopted == true
     animal.ready_to_adopt == false
-    # do I need owner = Owner.find(params[:owner_id])
     redirect to '/animals'
   end
