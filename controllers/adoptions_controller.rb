@@ -16,7 +16,8 @@ also_reload('../models/*')
   post '/adoptions/new' do
     Adoption.new(params).save
     animal = Animal.find(params[:animal_id])
-    animal.adopted == true
-    animal.ready_to_adopt == false
+    animal.adopted = true
+    animal.ready_to_adopt = false
+    animal.update
     redirect to '/owners'
   end

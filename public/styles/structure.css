@@ -1,6 +1,6 @@
 body {
-  /* background: aliceblue ; */
-  background-image: url('/images/dug_copy.jpg');
+  background: aliceblue ;
+  /* background-image: url('/images/dug_copy.jpg'); */
   background-size: 100%;
   background-repeat: no-repeat;
   color: black;
