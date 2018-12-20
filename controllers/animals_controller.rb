@@ -11,12 +11,12 @@ get '/animals/?' do
   erb ( :"animals/index" )
 end
 
-#new - form
+#new
 get '/animals/new' do
   erb(:"animals/new")
 end
 
-#save new
+#save
 post '/animals' do
   Animal.new(params).save
   redirect to '/animals'
@@ -28,12 +28,13 @@ get '/animals/:id' do
   erb(:"animals/show")
 end
 
-#Edit
+#edit
 get '/animals/:id/edit' do
   @animal = Animal.find(params['id'])
   erb(:"animals/edit")
 end
 
+# update
 post '/animals/:id' do
   animal = Animal.new(params)
   animal.update

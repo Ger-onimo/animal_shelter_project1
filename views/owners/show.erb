@@ -1,9 +1,9 @@
 <h2><%= @owner.nice_name %></h2>
 
-<p>Address: <%= @owner.address %></p>
-<p>email: <%= @owner.email_address %></p>
-<p>Animal Preference: <%= @owner.animal_preference %></p>
-<p>Animals Adopted: </p>
+<h5>Address: <%= @owner.address %></h5>
+<h5>email: <%= @owner.email_address %></h5>
+<h5>Animal Preference: <%= @owner.animal_preference.upcase %></h5>
+<h5>Animals Adopted: </h5>
 
 
 <div>
@@ -15,7 +15,7 @@
 
 
 <br>
-<a href="/owners/<%= @owner.id %>/edit">Edit</a>
+<h3><a href="/owners/<%= @owner.id %>/edit">Edit</a></h3>
 <br>
 <br>
 <form action="/owners/<%= @owner.id %>/delete"

@@ -18,5 +18,5 @@ also_reload('../models/*')
     animal = Animal.find(params[:animal_id])
     animal.adopted == true
     animal.ready_to_adopt == false
-    redirect to '/animals'
+    redirect to '/owners'
   end

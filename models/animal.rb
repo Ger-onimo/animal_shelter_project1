@@ -42,7 +42,7 @@ class Animal
     @id = animal['id'].to_i
   end
 
-  def update() #UPDATE
+  def update()
     sql = "UPDATE animals SET
       (
         name,
@@ -70,7 +70,7 @@ class Animal
     SqlRunner.run(sql, values)
   end
 
-  def self.all() #READ
+  def self.all()
     sql = "SELECT * FROM animals"
     values = []
     animals = SqlRunner.run(sql, values)
@@ -113,7 +113,6 @@ class Animal
     animals = SqlRunner.run(sql, values)
     return animals.map{ |animal| Animal.new(animal)}
   end
-
 
 #TODO - for extension
   # def self.find_animal_by_breed(breed)
