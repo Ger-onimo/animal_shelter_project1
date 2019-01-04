@@ -4,6 +4,7 @@
   <% @animals.each do |animal| %>
 
   <div class="animals">
+
     <h3><a href="/animals/<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
 
       <% if animal.ready_to_adopt == 't'%>

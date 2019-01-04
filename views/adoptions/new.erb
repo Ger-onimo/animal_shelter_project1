@@ -2,7 +2,7 @@
 
   <% @animals.each do |animal| %>
   <div class="adoptions">
-    <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name %></a></h3>
+    <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
     <h4>Type: <%= animal.type.upcase %></h4>
     <h5>Type: <%= animal.breed.upcase %></h5>
   </div>
@@ -22,7 +22,7 @@
     <p>Select animal being adopted from list</p>
     <select name="animal_id" id="animal_id">
       <% @animals.each do |animal| %>
-        <option value="<%= animal.id %>"><%= animal.name%></option>
+        <option value="<%= animal.id %>"><%= animal.name.capitalize%></option>
       <% end %>
     <select>
   </div>

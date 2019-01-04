@@ -1,13 +1,20 @@
 <h2>Owners</h2>
 
 <div id="owner-wrapper">
-  <% @owners.each do |owner| %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Animal Preference</th>
+    </tr>
 
-  <div class="owner">
-    <h3><a href="/owners/<%= owner.id %>"><%= owner.nice_name %></a></h3>
-  </div>
+  <% @owners.each do |owner| %>
+    <tr>
+      <td><h3><a href="/owners/<%= owner.id %>"><%= owner.nice_name %></a></h3></td>
+      <td><h4><a href="/owners/<%= owner.id %>"><%= owner.animal_preference.upcase%></a></h4></td>
+    </tr>
   <% end %>
-  </div>
+  </table>
+</div>
 
 <div>
   <h3><a href="/owners/new" >Add a New Owner</a></h3>
