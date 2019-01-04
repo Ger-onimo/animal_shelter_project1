@@ -14,7 +14,7 @@ owner1 = Owner.new( {
   'last_name' => 'bird',
   'address' => '10 delta way',
   'email_address' => 'jenny@arrg.com',
-  'animal_preference' => 'cat'
+  'animal_preference' => 'cat or dog'
   } )
 
 owner2 = Owner.new( {
@@ -41,10 +41,19 @@ owner4 = Owner.new( {
 'animal_preference' => 'any dog'
 } )
 
+owner5 = Owner.new( {
+'first_name' => 'sammy',
+'last_name' => 'roberts',
+'address' => '22 another road',
+'email_address' => 's.roberts@yoogle.co.uk',
+'animal_preference' => 'cat'
+} )
+
 owner1.save
 owner2.save
 owner3.save
 owner4.save
+owner5.save
 
 animal1 = Animal.new( {
     'name' => 'willow',
@@ -53,7 +62,7 @@ animal1 = Animal.new( {
     'admission_date' => '01/10/2018',
     'training_complete' => true,
     'health_check_complete' => true ,
-    'ready_to_adopt' => true,
+    'ready_to_adopt' => false,
     'adopted' => true
      } )
 
@@ -64,7 +73,7 @@ animal2 = Animal.new( {
     'admission_date' => '04/08/2018',
     'training_complete' => true,
     'health_check_complete' => true,
-    'ready_to_adopt' => true,
+    'ready_to_adopt' => false,
     'adopted' => true
      } )
 
@@ -75,7 +84,7 @@ animal3 = Animal.new( {
     'admission_date' => '16/11/2018',
     'training_complete' => true,
     'health_check_complete' => true,
-    'ready_to_adopt' => true,
+    'ready_to_adopt' => false,
     'adopted' => true
     } )
 

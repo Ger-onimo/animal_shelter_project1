@@ -1,6 +1,6 @@
 body {
-  /* background: aliceblue ; */
-  background-image: url('/images/dug_copy.jpg');
+  background: aliceblue ;
+  /* background-image: url('/images/dug_copy.jpg'); */
   background-size: 100%;
   background-repeat: no-repeat;
   color: black;
@@ -11,7 +11,7 @@ body {
 
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'arial';
+  font-family: 'Arial';
   margin: 5px;
   padding: 5px;
 }

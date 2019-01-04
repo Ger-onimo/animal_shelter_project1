@@ -1,26 +1,29 @@
 <h2>Animals</h2>
 
 <div id="animal-wrapper">
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Admission Date</th>
+      <th>Adoption Status</th>
+    </tr>
   <% @animals.each do |animal| %>
-
-  <div class="animals">
-
-    <h3><a href="/animals/<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
-
-      <% if animal.ready_to_adopt == 't'%>
-        <h5>Adoptable</h5>
-      <% elsif animal.ready_to_adopt == 'f' && animal.adopted == 't' %>
-        <h5>Adopted</h5>
-        <%else%>
-        <h5>Not ready for adoption</h5>
+    <tr>
+      <td><h3><a href="/animals/<%= animal.id %>">
+                  <%= animal.name.capitalize %></a></h3></td>
+        <td><p>Admission Date: <%= animal.admission_date %></p></td>
+          <td><% if animal.ready_to_adopt == 't'%>
+            <h5>Adoptable</h5>
+          <% elsif animal.ready_to_adopt == 'f' && animal.adopted == 't' %>
+            <h5>Adopted</h5>
+            <%else%>
+            <h5>Not ready for adoption</h5>
+          <% end %></td>
+    </tr>
       <% end %>
-
-      <p>Admission Date: <%= animal.admission_date %></p>
-
-  </div>
-  <% end %>
-
+  </table>
 </div>
+
 <div>
   <h3><a href="/animals/new" >Add a New Animal</a></h3>
 </div>

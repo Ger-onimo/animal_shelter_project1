@@ -4,7 +4,7 @@
   <div class="adoptions">
     <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
     <h4>Type: <%= animal.type.upcase %></h4>
-    <h5>Type: <%= animal.breed.upcase %></h5>
+    <h5>Breed: <%= animal.breed.upcase %></h5>
   </div>
   <% end %>
 <br>
@@ -17,7 +17,8 @@
         <option value="<%= owner.id %>"><%= owner.nice_name%></option>
       <% end %>
     <select>
-
+<br>
+<br>
     <label for="animal_id">Animal</label>
     <p>Select animal being adopted from list</p>
     <select name="animal_id" id="animal_id">
