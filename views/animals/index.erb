@@ -6,12 +6,14 @@
   <div class="animals">
     <h3><a href="/animals/<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
 
-      <% if animal.adopted == 't'%>
-        <h5>Adopted</h5>
-      <% end %>
-      <%if animal.ready_to_adopt == 't' && animal.adopted == 'f'%>
+      <% if animal.ready_to_adopt == 't'%>
         <h5>Adoptable</h5>
+      <% elsif animal.ready_to_adopt == 'f' && animal.adopted == 't' %>
+        <h5>Adopted</h5>
+        <%else%>
+        <h5>Not ready for adoption</h5>
       <% end %>
+
       <p>Admission Date: <%= animal.admission_date %></p>
 
   </div>

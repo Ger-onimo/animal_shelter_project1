@@ -63,8 +63,6 @@ attr_reader :id, :owner_id, :animal_id
         return owner
       end
 
-
-
       def animal()
         sql = "SELECT * FROM animals
           WHERE animals.id = $1"

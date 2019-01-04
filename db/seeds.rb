@@ -22,7 +22,7 @@ owner2 = Owner.new( {
   'last_name' => 'smith',
   'address' => '1 upper hill',
   'email_address' => 'hevvur@smile.co.uk',
-  'animal_preference' => 'cat'
+  'animal_preference' => 'large dog'
   } )
 
 owner3 = Owner.new( {
