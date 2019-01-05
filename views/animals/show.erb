@@ -1,5 +1,6 @@
 <h2><%= @animal.name.capitalize %></h2>
 
+<img src="/images/adoption_animals/<%= @animal.name %>.jpg"alt="<%= @animal.name %>"
 <h5>Type: <%= @animal.type.upcase %></h5>
 <h5>Breed: <%= @animal.breed.upcase %></h5>
 <h5>Admission Date: <%= @animal.admission_date %></h5>
@@ -7,6 +8,7 @@
 <h5>Health Check Complete: <%= @animal.health_check_complete %></h5>
 <h5>Ready to Adopt: <%= @animal.ready_to_adopt %></h5>
 <!-- <h5>Adopted: <%= @animal.adopted %></h5> -->
+
 <br>
 <h3><a href="/animals/<%= @animal.id %>/edit">Edit</a></h3>
 <br>

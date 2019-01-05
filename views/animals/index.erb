@@ -1,9 +1,10 @@
 <h2>Animals</h2>
 
-<div id="animal-wrapper">
+<div>
   <table>
     <tr>
       <th>Name</th>
+      <th>Type</th>
       <th>Admission Date</th>
       <th>Adoption Status</th>
     </tr>
@@ -11,8 +12,9 @@
     <tr>
       <td><h3><a href="/animals/<%= animal.id %>">
                   <%= animal.name.capitalize %></a></h3></td>
-        <td><p>Admission Date: <%= animal.admission_date %></p></td>
-          <td><% if animal.ready_to_adopt == 't'%>
+      <td><p><%= animal.type %></p></td>
+      <td><p><%= animal.admission_date %></p></td>
+      <td><% if animal.ready_to_adopt == 't'%>
             <h5>Adoptable</h5>
           <% elsif animal.ready_to_adopt == 'f' && animal.adopted == 't' %>
             <h5>Adopted</h5>
