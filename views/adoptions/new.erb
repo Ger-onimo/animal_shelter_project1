@@ -1,39 +1,48 @@
 <div>
 
-  <% @animals.each do |animal| %>
   <div class="adoptions">
-    <h3><a href="/adoptions/new<%= animal.id %>"><%= animal.name.capitalize %></a></h3>
+<table id="adoptions">
 
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Breed</th>
+    <th>Adopters</th>
+    <th>Animal Match</th>
 
+  </tr>
 
-    <h4>Type: <%= animal.type.upcase %></h4>
-    <h5>Breed: <%= animal.breed.upcase %></h5>
-  </div>
+  <% @animals.each do |animal| %>
+  <tr>
+    <td><img src="/images/adoption_animals/<%= animal.name %>.jpg"
+              width="75" height="56" alt=""></td>
+
+    <td><h4><a href="/adoptions/new<%= animal.id %>">
+            <%= animal.name.capitalize %></a></h4></td>
+        <td><h5><%= animal.type %></h5></td>
+        <td><h5><%= animal.breed %></h5></td>
+        <td>
+          <form method="POST" action="/adoptions/new" >
+          <!-- <label for="owner_id">New Owner</label> -->
+            <select name="owner_id" id="owner_id">
+              <% @owners.each do |owner| %>
+                <option value="<%= owner.id %>"><%= owner.nice_name%></option>
+              <% end %>
+            <select> </td>
+        <td>
+          <!-- <label for="animal_id">Animal</label> -->
+            <select name="animal_id" id="animal_id">
+              <% @animals.each do |animal| %>
+                <option value="<%= animal.id %>"><%= animal.name.capitalize%></option>
+              <% end %>
+            <select> <input type="submit" value="Submit Adoption"/>
+          </td>
+  </tr>
   <% end %>
-<br>
-<form method="POST" action="/adoptions/new" >
-  <!-- <legend> assign an owner to an animal  -->
-    <label for="owner_id">New Owner</label>
-    <p>Select new owner from list</p>
-    <select name="owner_id" id="owner_id">
-      <% @owners.each do |owner| %>
-        <option value="<%= owner.id %>"><%= owner.nice_name%></option>
-      <% end %>
-    <select>
-<br>
-<br>
-    <label for="animal_id">Animal</label>
-    <p>Select animal being adopted from list</p>
-    <select name="animal_id" id="animal_id">
-      <% @animals.each do |animal| %>
-        <option value="<%= animal.id %>"><%= animal.name.capitalize%></option>
-      <% end %>
-    <select>
-  </div>
-
-  <div>
-    <input type="submit" value="Submit Adoption"/>
-  </div>
+  </table>
+    </div>
 </div>
+    </form>
 
-  </form>
+    <!-- all this needs refinement -->

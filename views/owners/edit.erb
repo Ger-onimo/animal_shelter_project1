@@ -1,33 +1,30 @@
 <h2>Edit <%= @owner.nice_name %></h2>
 
 <form method="POST" action="/owners/<%= @owner.id %>">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+
   <div>
   <!-- Field for first_name -->
-    <div>
       <label for="first_name">First Name:</label>
       <input type="text" name="first_name" id="first_name" value="<%= @owner.first_name %>"/>
-    </div>
+
     <br>
     <!-- Field for a last_name -->
-    <div>
       <label for="last_name">Last Name:</label>
       <input type="text" name="last_name" id="last_name" value="<%= @owner.last_name %>"/>
-    </div>
+
     <br>
     <!-- Field for address -->
-    <div>
       <label for="address">Address:</label>
       <input type="text" name="address" id="address" value="<%= @owner.address %>"/>
-    </div>
+
     <br>
     <!-- Field for email -->
-    <div>
       <label for="email_address">email address:</label>
       <input type="text" name="email_address" id="email_address" value="<%= @owner.email_address %>"/>
-    </div>
+
     <br>
     <!-- Field for animal preference - for now hard coded -->
-    <div>
       <label for="animal_preference">Animal Preference:</label>
       <select name="animal_preference" id="animal_preference">
         <option value="cat" <%="selected" if @owner.animal_preference== "cat"%>>cat</option>
@@ -36,7 +33,6 @@
         <option value="any dog"<%="selected" if @owner.animal_preference== "any dog"%>>any dog</option>
         <option value="cat or dog"<%="selected" if @owner.animal_preference== "cat or dogs"%>>cat or dog</option>
       </select>
-    </div>
 
     <div>
       <input type="submit" value="Submit"/>

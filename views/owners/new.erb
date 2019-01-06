@@ -1,35 +1,27 @@
 <h2>New Owner Form</h2>
+<link rel="stylesheet" type="text/css" href="/styles/forms.css">
 
 <form method="POST" action="/owners" >
+
   <div>
   <!-- Field for first_name -->
-    <div>
       <label for="first_name">First Name:</label>
-      <input type="text" name="first_name" id="first_name"/>
-    </div>
+      <input type="text" name="first_name" id="first_name" placeholder= "First Name.."/>
     <br>
     <!-- Field for a last_name -->
-    <div>
       <label for="last_name">Last Name:</label>
-      <input type="text" name="last_name" id="last_name"/>
-    </div>
+      <input type="text" name="last_name" id="last_name" placeholder= "Last Name.."/>
     <br>
     <!-- Field for address -->
-    <div>
       <label for="address">Address:</label>
-      <input type="text" name="address" id="address"/>
-    </div>
+      <input type="text" name="address" id="address" placeholder= "Address.."/>
     <br>
     <!-- Field for email -->
-    <div>
       <label for="email_address">email address:</label>
-      <input type="text" name="email_address" id="email_address"/>
-    </div>
+      <input type="text" name="email_address" id="email_address" placeholder= "Email.."/>
     <br>
     <!-- Field for animal preference - for now hard coded -->
-    <div>
       <label for="animal_preference">Animal Preference:</label>
-      <p>Select from list</p>
       <select name="animal_preference" id="animal_preference">
         <option value="cat">cat</option>
         <option value="small dog">small dog</option>
@@ -37,7 +29,6 @@
         <option value="any dog">any dog</option>
         <option value="cat or dog">cat or dog</option>
       </select>
-    </div>
 
     <div>
       <input type="submit" value="Submit"/>

@@ -1,8 +1,9 @@
 <h2>Animals</h2>
 
 <div>
-  <table>
+  <table id="all_animals">
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Type</th>
       <th>Admission Date</th>
@@ -10,10 +11,12 @@
     </tr>
   <% @animals.each do |animal| %>
     <tr>
-      <td><h3><a href="/animals/<%= animal.id %>">
-                  <%= animal.name.capitalize %></a></h3></td>
-      <td><p><%= animal.type %></p></td>
-      <td><p><%= animal.admission_date %></p></td>
+      <td><img src="/images/adoption_animals/<%= animal.name %>.jpg"
+                width="75" height="56" alt=""> </td>
+      <td><h4><a href="/animals/<%= animal.id %>">
+                <%= animal.name.capitalize %></a></h4></td>
+      <td><%= animal.type %></td>
+      <td><%= animal.admission_date %></td>
       <td><% if animal.ready_to_adopt == 't'%>
             <h5>Adoptable</h5>
           <% elsif animal.ready_to_adopt == 'f' && animal.adopted == 't' %>

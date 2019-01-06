@@ -1,65 +1,57 @@
 <h2>Edit <%=@animal.name %></h2>
 
 <form method="POST" action="/animals/<%= @animal.id %>">
+  <link rel="stylesheet" type="text/css" href="/styles/forms.css">
+
 <div>
   <!-- Field for name -->
-  <div>
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="<%= @animal.name %>"/>
-  </div>
+
   <br>
   <!-- Field for type -->
-  <div>
     <label for="type">Type:</label>
     <input type="text" name="type" id="type" value="<%= @animal.type %>"/>
-  </div>
+
   <br>
   <!-- Field for breed -->
-  <div>
     <label for="breed">Breed:</label>
     <input type="text" name="breed" id="breed" value="<%= @animal.breed %>"/>
-  </div>
+
   <br>
   <!-- Field for admission date -->
-  <div>
     <label for="admission_date">Admission Date:</label>
     <input type="text" name="admission_date" id="admission_date"value="<%= @animal.admission_date %>"/>
-  </div>
+
   <br>
   <!-- Field for in training -->
-  <div>
     <label for="training_complete">Training Complete?</label>
     <input type="checkbox" name="training_complete" id="training_complete"
     <%= "checked" if @animal.training_complete == "t" %>/>
-  </div>
+
   <br>
   <!-- Field for health check -->
-  <div>
     <label for="health_check_complete">Health Check Complete?</label>
     <input type="checkbox" name="health_check_complete" id="health_check_complete"
     <%= "checked" if @animal.health_check_complete == "t" %>/>
-  </div>
+
   <br>
   <!-- Field for ready for adoption -->
-  <div>
     <label for="ready_to_adopt">Ready for Adoption?</label>
     <input type="checkbox" name="ready_to_adopt" id="ready_to_adopt"
     <%= "checked" if @animal.ready_to_adopt == "t" %>/>
-  </div>
+
   <br>
 
-  <div>
     <label for="adopted">Adopted?</label>
     <input type="checkbox" name="adopted" id="adopted"
     <%= "checked" if @animal.adopted == "t" %>/>
-  </div>
+
   <br>
 
   <!-- placeholder field for adding a photo -->
-  <div>
     <label for="photo">Upload photo</label>
-    <input type="text" name="photo" id="photo" value="<%= """/>
-  </div>
+    <input type="text" name="photo" id="photo" value=""/>
   <br
   <div>
     <input type="submit" value="Submit"/>

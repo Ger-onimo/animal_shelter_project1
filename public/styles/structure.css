@@ -4,90 +4,97 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   color: black;
-  font-family: 'Trebuchet MS', serif;
+  font-family: 'Calibri', sans-serif;
   padding: 0px;
   margin: 0px;
 }
 
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Arial';
-  margin: 5px;
-  padding: 5px;
-}
-
-h1 {
-  font-size: 1.8em;
+#navigation {
   color: black;
-  margin-bottom: 10px;
+    background-color: #5F9EA0;
+    /* opacity: .85; */
+    width: 100%;
+    text-align: center;
+
 }
 
- p{
-  font-size: .8em;
+nav li {
+  margin: 0;
+  padding: 0 10px;
+  display: inline;
+}
+
+nav a {
+  height: 60px;
+  line-height: 60px;
   color: black;
-  margin-bottom: 20px;
-  margin: 10px;
-  padding-left: 25px;
-}
-
-/* DONE */
-a, a:link, a:visited {
-  color: slategrey;
+  font-weight: bold;
   text-decoration: none;
 }
 
-/* not sure what this does */
-a:hover, a:active, a:focus {
-  color: #c6e2ff;
-}
+#all_animals{
+    font-family: 'Arial', sans-serif;
+    width: 70%;
+    border-collapse: collapse;
+  }
 
-/* DONE */
-nav {
-  padding: 10px;
-  margin: 0px;
-  padding-right: 25px;
-}
+  #all_owners{
+      font-family: 'Arial', serif;
+      width: 30%;
+      border-collapse: collapse;
+    }
 
-/*
-nav ul li {
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-*/
+  #adoptions{
+        font-family: 'Arial', serif;
+        width: 70%;
+        border-collapse: collapse;
+      }
 
-/* not sure what this does
- ul {
-  padding: 0px;
-  margin: 0px;
-  list-style-type: none;
-} */
+  #all_animals td, #all_animals th, #adoptions th {
+    padding: 8px;
+  }
 
-main {
-  padding: 25px;
-}
+#all_animals th, #all_owners th, #adoptions th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    text-align: left;
+    background-color: #5F9EA0;
+    color: white;
+  }
 
-.flex {
-  display: flex;
-}
+  #all_animals td, #all_owners td, #adoptions td {
+    padding-left: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 
-.flex--row {
-  flex-direction: row;
-}
+  #all_animals tr:hover {background-color: #dfebec;}
+  #all_owners tr:hover {background-color: #dfebec;}
 
-/* DONE */
+  a, a:link, a:visited {
+    color: #2F4F4F;
+    text-decoration: none;
+  }
 
-.content {
-  border-left: 1px solid darkred;
-  padding-left: 25px;
-  margin-bottom: 1rem;
-}
+  a:hover, a:active, a:focus {
+    color: #9400D3;
+  }
 
-.footer {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: white;
-  text-align: center;
-}
+
+  .content {
+    border-left: 1px solid darkred;
+    padding-left: 25px;
+    margin-bottom: 1rem;
+  }
+
+
+  .footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: white;
+    text-align: center;
+  }

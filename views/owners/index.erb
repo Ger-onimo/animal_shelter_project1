@@ -1,7 +1,7 @@
 <h2>Owners</h2>
 
 <div>
-  <table>
+  <table id="all_owners">
     <tr>
       <th>Name</th>
       <th>Animal Preference</th>
@@ -9,8 +9,8 @@
 
   <% @owners.each do |owner| %>
     <tr>
-      <td><h3><a href="/owners/<%= owner.id %>">
-                <%= owner.nice_name %></a></h3></td>
+      <td><h4><a href="/owners/<%= owner.id %>">
+                <%= owner.nice_name %></a></h4></td>
       <td><h5><a href="/owners/<%= owner.id %>">
                 <%= owner.animal_preference.upcase%></a></h5></td>
     </tr>
